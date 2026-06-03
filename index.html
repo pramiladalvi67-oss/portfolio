@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finetura | AI Product Visualization Portfolio</title>
+    <meta name="description" content="Witness ordinary product photos transform into premium studio-quality advertising visuals using AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Ambient Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+    <div class="bg-glow bg-glow--purple"></div>
+
+    <!-- ═══════════════════════════════════════
+         TAB 1 — HERO: Pot Image + Gemini + Cards
+    ════════════════════════════════════════ -->
+    <section id="tab-1" class="tab active-tab hero-section">
+        <div class="hero-container">
+
+            <!-- Left: Raw Capture -->
+            <div class="hero-raw-panel">
+                <span class="hud-panel-tag">STEP 01 // RAW CAPTURE</span>
+                <div class="viewfinder-mockup">
+                    <img src="Images/Water_Pot/Sample.webp" alt="Raw Product Capture" class="hero-raw-img">
+                    <span class="viewfinder-corner tl"></span>
+                    <span class="viewfinder-corner tr"></span>
+                    <span class="viewfinder-corner bl"></span>
+                    <span class="viewfinder-corner br"></span>
+                </div>
+                <div class="hud-meta-row">
+                    <span><i class="fa-solid fa-triangle-exclamation"></i> DETECTED ARTIFACTS</span>
+                    <span>12 MP SNAP</span>
+                </div>
+                <div class="hud-desc">FLAT AMBIENT LIGHT &bull; DULL BACKGROUND &bull; NO DEPTH</div>
+            </div>
+
+            <!-- Center: Arrow -->
+            <div class="hero-arrow-panel">
+                <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+            </div>
+
+            <!-- Right: AI Panel -->
+            <div class="hero-ai-panel">
+                <!-- Gemini Trigger -->
+                <div class="gemini-btn-wrap" id="gemini-trigger">
+                    <div class="gemini-btn-glow"></div>
+                    <button class="gemini-btn" aria-label="Initiate AI Transformation">
+                        <img src="Images/ai_logo.png" class="gemini-icon-img" alt="AI Transformation Logo">
+                    </button>
+                    <span class="gemini-btn-label">CLICK TO TRANSFORM</span>
+                </div>
+
+                <!-- Cards Deck (hidden until Gemini clicked) -->
+                <div class="hero-cards-deck" id="hero-cards-deck" data-count="4">
+                    <div class="deal-card" data-index="1" onclick="toggleCard(this)">
+                        <img src="Images/Water_Pot/Water_1.png" alt="Ad Variant 1">
+                        <span class="deal-card-badge">AD VARIANT 1</span>
+                    </div>
+                    <div class="deal-card" data-index="2" onclick="toggleCard(this)">
+                        <img src="Images/Water_Pot/Water_2.png" alt="Ad Variant 2">
+                        <span class="deal-card-badge">AD VARIANT 2</span>
+                    </div>
+                    <div class="deal-card" data-index="3" onclick="toggleCard(this)">
+                        <img src="Images/Water_Pot/Water_3.png" alt="Ad Variant 3">
+                        <span class="deal-card-badge">AD VARIANT 3</span>
+                    </div>
+                    <div class="deal-card" data-index="4" onclick="toggleCard(this)">
+                        <img src="Images/Water_Pot/Water_4.png" alt="Ad Variant 4">
+                        <span class="deal-card-badge">AD VARIANT 4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forward Button -->
+        <button class="nav-btn nav-btn--forward" data-target="tab-2" id="btn-forward-1">
+            <span>Proceed</span>
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TAB 2 — TEXT WITH APPEARING ANIMATIONS
+    ════════════════════════════════════════ -->
+    <section id="tab-2" class="tab text-tab">
+        <div class="text-tab-content">
+            <span class="section-tag text-anim-item">Our Ethos</span>
+            <p class="text-line text-anim-item">This is what we do.</p>
+            <p class="text-line text-line--accent text-anim-item">No photoshoots. No expensive studios.</p>
+            <p class="text-line text-anim-item">Just AI-powered product visuals.</p>
+            <div class="text-divider text-anim-item"></div>
+            <p class="text-tab-sub text-anim-item">One raw image. Multiple premium ad-ready visuals.<br>Delivered in hours &mdash; not weeks.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-btn-group">
+            <button class="nav-btn nav-btn--back" data-target="tab-1">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+            <button class="nav-btn nav-btn--forward nav-btn--inline" data-target="tab-3">
+                <span>Proceed</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TAB 3 — OPTIONS BUBBLES
+    ════════════════════════════════════════ -->
+    <section id="tab-3" class="tab options-tab">
+        <h2 class="options-title">Explore</h2>
+        <p class="options-subtitle">Choose where you'd like to go</p>
+        <div class="options-grid">
+            <div class="option-bubble" data-option="projects">
+                <div class="option-bubble-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <span class="option-bubble-label">Projects</span>
+            </div>
+            <div class="option-bubble" data-option="services">
+                <div class="option-bubble-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <span class="option-bubble-label">Services</span>
+            </div>
+            <div class="option-bubble" data-option="process">
+                <div class="option-bubble-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                <span class="option-bubble-label">Process</span>
+            </div>
+            <div class="option-bubble" data-option="contact">
+                <div class="option-bubble-icon"><i class="fa-solid fa-envelope"></i></div>
+                <span class="option-bubble-label">Contact</span>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="nav-btn-group">
+            <button class="nav-btn nav-btn--back" data-target="tab-2">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TAB 4 — SELECTED OPTION CONTENT
+    ════════════════════════════════════════ -->
+    <section id="tab-4" class="tab content-tab">
+
+        <!-- Back to Options -->
+        <button class="nav-btn nav-btn--back nav-btn--top-left" data-target="tab-3">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Options</span>
+        </button>
+
+        <!-- Tab Nav inside Tab 4 -->
+        <div class="portal-nav">
+            <button class="portal-nav-btn" id="btn-tab-projects" onclick="switchTab('projects')">
+                <i class="fa-solid fa-layer-group"></i> Projects
+            </button>
+            <button class="portal-nav-btn" id="btn-tab-services" onclick="switchTab('services')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Services
+            </button>
+            <button class="portal-nav-btn" id="btn-tab-process" onclick="switchTab('process')">
+                <i class="fa-solid fa-diagram-project"></i> Process
+            </button>
+            <button class="portal-nav-btn" id="btn-tab-contact" onclick="switchTab('contact')">
+                <i class="fa-solid fa-envelope"></i> Contact
+            </button>
+        </div>
+
+        <!-- PROJECTS PANEL -->
+        <div class="portal-panel" id="tab-projects">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Water_Pot/Water_1.png" alt="Zen Clay Thermal Pot">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">TERRACOTTA &bull; ZEN</span>
+                        <h3 class="project-card-title">Zen Clay Thermal Pot</h3>
+                        <p class="project-card-desc">A plain clay pot photographed indoors transformed into a premium Zen spa aesthetic with mist and river stones.</p>
+                        <button class="btn-explore" onclick="openModal('water-pot')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Bamboo_Bottle/Bamboo_1.png" alt="Bamboo Wellness Vessel">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">BAMBOO &bull; WELLNESS</span>
+                        <h3 class="project-card-title">Bamboo Wellness Vessel</h3>
+                        <p class="project-card-desc">Natural bamboo bottle lifted from a plastic-background snapshot to a lush outdoor river stone luxury scene.</p>
+                        <button class="btn-explore" onclick="openModal('bamboo-bottle')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Leaf_Plates/Plate_1.png" alt="Bio-Degradable Platter">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">ECO &bull; ORGANIC</span>
+                        <h3 class="project-card-title">Bio-Degradable Platter</h3>
+                        <p class="project-card-desc">Leaf plates shot in harsh sunlight on grass, reimagined as a premium catering display on warm linen backgrounds.</p>
+                        <button class="btn-explore" onclick="openModal('leaf-plates')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Masala_Box/Masala_1.png" alt="Artisanal Spice Container">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">SPICES &bull; ARTISAN</span>
+                        <h3 class="project-card-title">Artisanal Spice Container</h3>
+                        <p class="project-card-desc">A flat-lit masala box elevated into dynamic explosion scenes with floating spice particles and golden backlighting.</p>
+                        <button class="btn-explore" onclick="openModal('masala-box')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Perfume_Wood/Per_1.png" alt="Oud Forest Fragrance">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">FRAGRANCE &bull; LUXURY</span>
+                        <h3 class="project-card-title">Oud Forest Fragrance</h3>
+                        <p class="project-card-desc">A perfume bottle from a flat shelf transforms into cinematic foggy forest scenery with volcanic rock pedestals.</p>
+                        <button class="btn-explore" onclick="openModal('perfume-wood')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-img">
+                        <img src="Images/Plant_Stand/Stand_1.png" alt="Geometric Botanical Mount">
+                        <div class="project-card-raw-badge">RAW &rarr; AI</div>
+                        <div class="project-card-gallery-hint"><i class="fa-solid fa-images"></i><span>4 Variants</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag">DECOR &bull; BOTANICAL</span>
+                        <h3 class="project-card-title">Geometric Botanical Mount</h3>
+                        <p class="project-card-desc">Steel plant stand shot in a cluttered corner, placed in a sun-drenched Scandinavian loft with perfect shadows.</p>
+                        <button class="btn-explore" onclick="openModal('plant-stand')"><i class="fa-solid fa-images"></i> Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES PANEL -->
+        <div class="portal-panel" id="tab-services">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>AI Background Synthesis</h3>
+                    <p>We replace cluttered or dull backgrounds with premium studio-quality environments matched to your brand identity.</p>
+                    <span class="service-tag">BACKGROUND REMOVAL + GENERATION</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-sun"></i></div>
+                    <h3>Lighting &amp; Shadow Reconstruction</h3>
+                    <p>Harsh shadows, flat lighting and overexposure are corrected and replaced with physically accurate cinematic light rigs.</p>
+                    <span class="service-tag">EXPOSURE CORRECTION + LIGHT STAGING</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Multi-Variant Ad Generation</h3>
+                    <p>From a single raw image, we deliver multiple distinct advertising variants across different scenes, moods and palettes.</p>
+                    <span class="service-tag">BATCH VARIANT OUTPUT</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+                    <h3>Texture &amp; Detail Upscaling</h3>
+                    <p>AI super-resolution enhances product surface details to ultra-high resolution advertising standards.</p>
+                    <span class="service-tag">4K UPSCALING + TEXTURE ENHANCEMENT</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <h3>Dynamic Scene Compositing</h3>
+                    <p>Water splashes, floating particles, smoke, mist&mdash;dynamic elements composited to make your product imagery dramatic.</p>
+                    <span class="service-tag">PARTICLE + FLUID SIMULATION</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Express 24-Hour Delivery</h3>
+                    <p>Most projects complete within 24 hours. No studio booking. Just send your raw photos and receive premium advertising visuals.</p>
+                    <span class="service-tag">FAST TURNAROUND</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESS PANEL -->
+        <div class="portal-panel" id="tab-process">
+            <div class="workflow-container">
+                <div class="workflow-header">
+                    <span class="section-tag">How It Works</span>
+                    <h2>From Raw Snap to Premium Ad</h2>
+                    <p class="workflow-sub">A five-stage neural pipeline that turns any product photo into advertising-grade visuals.</p>
+                </div>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="workflow-node"><div class="workflow-node-dot workflow-node-dot--active"></div></div>
+                        <div class="workflow-step-num">STEP 01</div>
+                        <div class="workflow-step-card">
+                            <div class="workflow-step-header"><h3>RAW INPUT</h3><span class="workflow-badge">CAPTURE</span></div>
+                            <p>Client sends any smartphone or DSLR photo of their product&mdash;no special requirements, no staging needed.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-node"><div class="workflow-node-dot"></div></div>
+                        <div class="workflow-step-num">STEP 02</div>
+                        <div class="workflow-step-card">
+                            <div class="workflow-step-header"><h3>AI ANALYSIS</h3><span class="workflow-badge">SCANNING</span></div>
+                            <p>Our AI pipeline scans the product for geometry, surface material, light conditions and chromatic artifacts.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-node"><div class="workflow-node-dot"></div></div>
+                        <div class="workflow-step-num">STEP 03</div>
+                        <div class="workflow-step-card">
+                            <div class="workflow-step-header"><h3>IMAGE ENHANCEMENT</h3><span class="workflow-badge">UPSCALING</span></div>
+                            <p>We upscale details, enhance textures, balance ambient exposure, and clean up chromatic distortions or artifacts.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-node"><div class="workflow-node-dot"></div></div>
+                        <div class="workflow-step-num">STEP 04</div>
+                        <div class="workflow-step-card">
+                            <div class="workflow-step-header"><h3>SCENE GENERATION</h3><span class="workflow-badge">STAGING</span></div>
+                            <p>Generative lighting synthesis constructs premium aesthetic surroundings matching the product's design language.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="workflow-node"><div class="workflow-node-dot workflow-node-dot--active"></div></div>
+                        <div class="workflow-step-num">STEP 05</div>
+                        <div class="workflow-step-card">
+                            <div class="workflow-step-header"><h3>FINAL ADVERTISEMENT</h3><span class="workflow-badge">OUTPUT</span></div>
+                            <p>The final ultra-premium, high-resolution advertising visual is generated, graded for digital display, and delivered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PANEL -->
+        <div class="portal-panel" id="tab-contact">
+            <div class="contact-box">
+                <div class="contact-glow"></div>
+                <span class="section-tag">Start Transforming</span>
+                <h2 class="contact-headline">Ready to transform your products?</h2>
+                <p class="contact-desc">Stop investing thousands in elaborate photoshoots. Unlock premium commercial variations within hours using AI processing.</p>
+                <div class="contact-buttons">
+                    <div class="contact-btn-group">
+                        <a href="mailto:veerkartiki2530@gmail.com" class="btn-contact btn-contact--primary">
+                            <i class="fa-solid fa-envelope"></i> Email Me
+                        </a>
+                        <span class="contact-btn-info">veerkartiki2530@gmail.com</span>
+                    </div>
+                    <div class="contact-btn-group">
+                        <a href="https://wa.me/919699339547?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20AI%20Product%20Visualization%20services." target="_blank" class="btn-contact btn-contact--whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <span class="contact-btn-info">+91 96993 39547</span>
+                    </div>
+                    <div class="contact-btn-group">
+                        <a href="https://www.linkedin.com/company/fineturaorg" target="_blank" class="btn-contact btn-contact--linkedin">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                        <span class="contact-btn-info">linkedin.com/company/fineturaorg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (shown at bottom of Tab 4) -->
+    <footer class="site-footer" id="site-footer" style="display:none;">
+        <p>&copy; 2026 FINETURA. AI Product Visualization Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-header-title">
+                    <span class="modal-dot"></span>
+                    <h3 id="modal-title">Project Case Study</h3>
+                </div>
+                <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+        <img id="lightbox-img" src="" alt="Full view" class="lightbox-img">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
